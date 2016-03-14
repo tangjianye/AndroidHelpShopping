@@ -3,4 +3,12 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+
+    <!-- MainActivity start -->
+    <string name="label_home">首页</string>
+    <string name="label_category">分类</string>
+    <string name="label_guide">新手引导</string>
+    <string name="label_personal_center">个人中心</string>
+    <!-- MainActivity end -->
+
 </resources>

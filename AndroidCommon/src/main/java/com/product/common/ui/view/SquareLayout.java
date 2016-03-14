@@ -1,4 +1,4 @@
-package com.product.common.view;
+package com.product.common.ui.view;
 
 import android.content.Context;
 import android.util.AttributeSet;

@@ -1,17 +1,15 @@
-package com.product.helpshopping;
+package com.product.helpshopping.ui.base;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MainActivity extends AppCompatActivity {
+import com.product.common.ui.base.BaseActivity;
+import com.product.helpshopping.R;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-    }
+/**
+ * Created by Administrator on 2016/3/14 0014.
+ */
+public class AppBaseActivity extends BaseActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
