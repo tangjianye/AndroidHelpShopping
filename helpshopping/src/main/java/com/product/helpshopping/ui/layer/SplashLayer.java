@@ -13,17 +13,17 @@ import com.product.helpshopping.ui.activity.MainActivity;
 import com.product.helpshopping.ui.activity.SplashActivity;
 
 
-public class WelcomeLayer extends RelativeLayout implements ICycle {
+public class SplashLayer extends RelativeLayout implements ICycle {
     private static final String TAG = "WelcomeLayer";
     private final int DELAY_TIME = 1000;
     private Animation mAnimator = null;
     private Handler mHandler = new Handler();
 
-    public WelcomeLayer(Context context) {
+    public SplashLayer(Context context) {
         super(context);
     }
 
-    public WelcomeLayer(Context context, AttributeSet attrs) {
+    public SplashLayer(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 

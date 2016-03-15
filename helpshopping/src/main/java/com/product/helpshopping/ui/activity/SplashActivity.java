@@ -9,12 +9,12 @@ import com.product.helpshopping.R;
 import com.product.helpshopping.common.Constants;
 import com.product.helpshopping.ui.base.AppBaseActivity;
 import com.product.helpshopping.ui.layer.GuideLayer;
-import com.product.helpshopping.ui.layer.WelcomeLayer;
+import com.product.helpshopping.ui.layer.SplashLayer;
 
 
 public class SplashActivity extends AppBaseActivity {
     private static final String TAG = SplashActivity.class.getSimpleName();
-    private WelcomeLayer mWelcomeLayer = null;
+    private SplashLayer mSplashLayer = null;
     private GuideLayer mGuideLayer = null;
 
     @Override
@@ -27,7 +27,7 @@ public class SplashActivity extends AppBaseActivity {
             return;
         }
 
-        setContentView(R.layout.activity_welcome);
+        setContentView(R.layout.activity_splash);
         switchView(getGuideSwitch());
     }
 
@@ -39,8 +39,8 @@ public class SplashActivity extends AppBaseActivity {
         if (havedShowGuide) {
             ViewStub stub = (ViewStub) findViewById(R.id.vs_welcome);
             stub.inflate();
-            mWelcomeLayer = (WelcomeLayer) findViewById(R.id.in_welcome);
-            mWelcomeLayer.refresh(null);
+            mSplashLayer = (SplashLayer) findViewById(R.id.in_welcome);
+            mSplashLayer.refresh(null);
         } else {
             ViewStub stub = (ViewStub) findViewById(R.id.vs_guide);
             stub.inflate();
@@ -69,8 +69,8 @@ public class SplashActivity extends AppBaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (null != mWelcomeLayer) {
-            mWelcomeLayer.destroy();
+        if (null != mSplashLayer) {
+            mSplashLayer.destroy();
         }
         if (null != mGuideLayer) {
             mGuideLayer.destroy();
