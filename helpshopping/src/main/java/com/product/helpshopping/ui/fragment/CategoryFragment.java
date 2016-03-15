@@ -20,6 +20,6 @@ public class CategoryFragment extends AppBaseFragment {
         TextView view = new TextView(getAppBaseActivity());
         view.setText(R.string.label_category);
         view.setTextColor(Color.parseColor("#ff0000"));
-        return null;
+        return view;
     }
 }

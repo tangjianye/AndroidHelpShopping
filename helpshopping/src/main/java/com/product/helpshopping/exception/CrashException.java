@@ -7,7 +7,7 @@ import java.lang.Thread.UncaughtExceptionHandler;
 /**
  * 处理未捕获异常，提高application的友好度
  *
- * @author Peng Yi
+ * @author tangjy
  */
 public class CrashException implements UncaughtExceptionHandler {
     public static final String TAG = "CrashException";

@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentTabHost;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.TabHost.TabSpec;
 import android.widget.TextView;
@@ -16,86 +17,65 @@ import com.product.helpshopping.ui.fragment.GuideFragment;
 import com.product.helpshopping.ui.fragment.HomeFragment;
 import com.product.helpshopping.ui.fragment.PersonalCenterFragment;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 public class MainActivity extends AppBaseActivity implements TabHost.OnTabChangeListener {
-    private FragmentTabHost tabHost;
+    private static final String TAG = MainActivity.class.getSimpleName();
+
+    @Bind(android.R.id.tabhost)
+    FragmentTabHost mTabhost;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        tabHost = (FragmentTabHost) findViewById(android.R.id.tabhost);
-        tabHost.setup(this, getSupportFragmentManager(), R.id.contentLayout);
-        tabHost.getTabWidget().setDividerDrawable(null);
-        tabHost.setOnTabChangedListener(this);
+        ButterKnife.bind(this);
+        initView();
         initTab();
+    }
 
+    private void initView() {
+        mTabhost = (FragmentTabHost) findViewById(android.R.id.tabhost);
+        mTabhost.setup(this, getSupportFragmentManager(), R.id.contentLayout);
+        mTabhost.getTabWidget().setDividerDrawable(null);
+        mTabhost.setOnTabChangedListener(this);
     }
 
     private void initTab() {
         TabSpec tabSpec = null;
 
-        tabSpec = tabHost.newTabSpec(getString(R.string.label_home))
-                .setIndicator(getTabView(R.string.label_home));
-        tabHost.addTab(tabSpec, HomeFragment.class, null);
-        tabHost.setTag(getString(R.string.label_home));
+        tabSpec = mTabhost.newTabSpec(getString(R.string.label_home))
+                .setIndicator(getTabView(R.string.label_home, R.drawable.selector_tab_home));
+        mTabhost.addTab(tabSpec, HomeFragment.class, null);
+        mTabhost.setTag(getString(R.string.label_home));
 
-        tabSpec = tabHost.newTabSpec(getString(R.string.label_category))
-                .setIndicator(getTabView(R.string.label_category));
-        tabHost.addTab(tabSpec, CategoryFragment.class, null);
-        tabHost.setTag(getString(R.string.label_category));
+        tabSpec = mTabhost.newTabSpec(getString(R.string.label_category))
+                .setIndicator(getTabView(R.string.label_category, R.drawable.selector_tab_category));
+        mTabhost.addTab(tabSpec, CategoryFragment.class, null);
+        mTabhost.setTag(getString(R.string.label_category));
 
-        tabSpec = tabHost.newTabSpec(getString(R.string.label_guide))
-                .setIndicator(getTabView(R.string.label_guide));
-        tabHost.addTab(tabSpec, GuideFragment.class, null);
-        tabHost.setTag(getString(R.string.label_guide));
+        tabSpec = mTabhost.newTabSpec(getString(R.string.label_guide))
+                .setIndicator(getTabView(R.string.label_guide, R.drawable.selector_tab_guide));
+        mTabhost.addTab(tabSpec, GuideFragment.class, null);
+        mTabhost.setTag(getString(R.string.label_guide));
 
-        tabSpec = tabHost.newTabSpec(getString(R.string.label_personal_center))
-                .setIndicator(getTabView(R.string.label_personal_center));
-        tabHost.addTab(tabSpec, PersonalCenterFragment.class, null);
-        tabHost.setTag(getString(R.string.label_personal_center));
+        tabSpec = mTabhost.newTabSpec(getString(R.string.label_personal_center))
+                .setIndicator(getTabView(R.string.label_personal_center, R.drawable.selector_tab_personl));
+        mTabhost.addTab(tabSpec, PersonalCenterFragment.class, null);
+        mTabhost.setTag(getString(R.string.label_personal_center));
     }
 
-    private View getTabView(int contentId) {
-        View view = LayoutInflater.from(this).inflate(R.layout.footer_tabs, null);
-//        ((TextView) view.findViewById(R.id.tvTab)).setText(TabDb.getTabsTxt()[idx]);
-//        if (idx == 0) {
-//            ((TextView) view.findViewById(R.id.tvTab)).setTextColor(Color.RED);
-//            ((ImageView) view.findViewById(R.id.ivImg)).setImageResource(TabDb.getTabsImgLight()[idx]);
-//        } else {
-//            ((ImageView) view.findViewById(R.id.ivImg)).setImageResource(TabDb.getTabsImg()[idx]);
-//        }
-
+    private View getTabView(int contentId, int iconId) {
+        View view = LayoutInflater.from(this).inflate(R.layout.include_footer_tabs, null);
         ((TextView) view.findViewById(R.id.tvTab)).setText(contentId);
+        ((ImageView) view.findViewById(R.id.ivImg)).setImageResource(iconId);
         return view;
     }
-
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.main, menu);
-//        return true;
-//    }
 
     @Override
     public void onTabChanged(String tabId) {
         // TODO Auto-generated method stub
-        LogUtils.i("tangjy", "onTabChanged tabId = " + tabId);
-//        updateTab();
+        LogUtils.i(TAG, "onTabChanged tabId = " + tabId);
     }
-
-//    private void updateTab() {
-//        TabWidget tabw = tabHost.getTabWidget();
-//        for (int i = 0; i < tabw.getChildCount(); i++) {
-//            View view = tabw.getChildAt(i);
-//            ImageView iv = (ImageView) view.findViewById(R.id.ivImg);
-//            if (i == tabHost.getCurrentTab()) {
-//                ((TextView) view.findViewById(R.id.tvTab)).setTextColor(Color.RED);
-//                iv.setImageResource(TabDb.getTabsImgLight()[i]);
-//            } else {
-//                ((TextView) view.findViewById(R.id.tvTab)).setTextColor(getResources().getColor(R.color.foot_txt_gray));
-//                iv.setImageResource(TabDb.getTabsImg()[i]);
-//            }
-//
-//        }
-//    }
 }

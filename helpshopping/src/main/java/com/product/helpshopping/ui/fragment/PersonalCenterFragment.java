@@ -20,6 +20,6 @@ public class PersonalCenterFragment extends AppBaseFragment {
         TextView view = new TextView(getAppBaseActivity());
         view.setText(R.string.label_personal_center);
         view.setTextColor(Color.parseColor("#ff0000"));
-        return null;
+        return view;
     }
 }

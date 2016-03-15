@@ -21,6 +21,6 @@ public class HomeFragment extends AppBaseFragment {
         view.setText(R.string.label_home);
         view.setTextSize(20);
         view.setTextColor(Color.parseColor("#ff0000"));
-        return null;
+        return view;
     }
 }
