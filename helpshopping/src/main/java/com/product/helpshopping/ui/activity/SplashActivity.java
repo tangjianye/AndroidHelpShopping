@@ -10,6 +10,7 @@ import com.product.helpshopping.common.Constants;
 import com.product.helpshopping.ui.base.AppBaseActivity;
 import com.product.helpshopping.ui.layer.GuideLayer;
 import com.product.helpshopping.ui.layer.SplashLayer;
+import com.umeng.analytics.MobclickAgent;
 
 
 public class SplashActivity extends AppBaseActivity {
@@ -57,13 +58,17 @@ public class SplashActivity extends AppBaseActivity {
     }
 
     @Override
-    protected void onPause() {
-        super.onPause();
+    public void onResume() {
+        super.onResume();
+        MobclickAgent.onPageStart(TAG);
+        MobclickAgent.onResume(this);
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
+    public void onPause() {
+        super.onPause();
+        MobclickAgent.onPageEnd(TAG);
+        MobclickAgent.onPause(this);
     }
 
     @Override

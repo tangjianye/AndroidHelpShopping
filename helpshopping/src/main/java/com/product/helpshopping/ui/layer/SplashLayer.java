@@ -14,7 +14,7 @@ import com.product.helpshopping.ui.activity.SplashActivity;
 
 
 public class SplashLayer extends RelativeLayout implements ICycle {
-    private static final String TAG = "WelcomeLayer";
+    private static final String TAG = SplashLayer.class.getSimpleName();
     private final int DELAY_TIME = 1000;
     private Animation mAnimator = null;
     private Handler mHandler = new Handler();

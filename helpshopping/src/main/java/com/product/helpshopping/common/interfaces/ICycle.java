@@ -1,5 +1,6 @@
 package com.product.helpshopping.common.interfaces;
 
+@Deprecated
 public interface ICycle {
     void init();
 

@@ -16,6 +16,7 @@ import com.product.helpshopping.ui.fragment.CategoryFragment;
 import com.product.helpshopping.ui.fragment.GuideFragment;
 import com.product.helpshopping.ui.fragment.HomeFragment;
 import com.product.helpshopping.ui.fragment.PersonalCenterFragment;
+import com.umeng.analytics.MobclickAgent;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -33,6 +34,20 @@ public class MainActivity extends AppBaseActivity implements TabHost.OnTabChange
         ButterKnife.bind(this);
         initView();
         initTab();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        // MobclickAgent.onPageStart(TAG);
+        MobclickAgent.onResume(this);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        // MobclickAgent.onPageEnd(TAG);
+        MobclickAgent.onPause(this);
     }
 
     private void initView() {
@@ -77,5 +92,6 @@ public class MainActivity extends AppBaseActivity implements TabHost.OnTabChange
     public void onTabChanged(String tabId) {
         // TODO Auto-generated method stub
         LogUtils.i(TAG, "onTabChanged tabId = " + tabId);
+        MobclickAgent.onEvent(this, "click", tabId);
     }
 }

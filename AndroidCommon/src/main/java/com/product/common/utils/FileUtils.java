@@ -40,7 +40,7 @@ import java.util.List;
  * <li>{@link #makeFolders(String)}</li>
  * <li>{@link #makeDirs(String)}</li>
  * </ul>
- * 
+ *
  * @author <a href="http://www.trinea.cn" target="_blank">Trinea</a> 2012-5-12
  */
 public class FileUtils {
@@ -54,14 +54,12 @@ public class FileUtils {
 
     /**
      * read file
-     * 
+     *
      * @param filePath
-     * @param charsetName
-     *            The name of a supported {@link java.nio.charset.Charset
-     *            </code>charset<code>}
+     * @param charsetName The name of a supported {@link java.nio.charset.Charset
+     *                    </code>charset<code>}
      * @return if file not exist, return null, else return content of file
-     * @throws RuntimeException
-     *             if an error occurs while operator BufferedReader
+     * @throws RuntimeException if an error occurs while operator BufferedReader
      */
     public static StringBuilder readFile(String filePath, String charsetName) {
         File file = new File(filePath);
@@ -99,18 +97,16 @@ public class FileUtils {
 
     /**
      * write file
-     * 
+     *
      * @param filePath
      * @param content
-     * @param append
-     *            is append, if true, write to the end of file, else clear
-     *            content of file and write into it
+     * @param append   is append, if true, write to the end of file, else clear
+     *                 content of file and write into it
      * @return return false if content is empty, true otherwise
-     * @throws RuntimeException
-     *             if an error occurs while operator FileWriter
+     * @throws RuntimeException if an error occurs while operator FileWriter
      */
     public static boolean writeFile(String filePath, String content,
-            boolean append) {
+                                    boolean append) {
         if (StringUtils.isEmpty(content)) {
             return false;
         }
@@ -138,7 +134,7 @@ public class FileUtils {
 
     /**
      * write file
-     * 
+     *
      * @param filePath
      * @param contentList
      * @param append
@@ -182,7 +178,7 @@ public class FileUtils {
 
     /**
      * write file, the string will be written to the begin of the file
-     * 
+     *
      * @param filePath
      * @param content
      * @return
@@ -193,7 +189,7 @@ public class FileUtils {
 
     /**
      * write file, the string list will be written to the begin of the file
-     * 
+     *
      * @param filePath
      * @param contentList
      * @return
@@ -205,7 +201,7 @@ public class FileUtils {
 
     /**
      * write file, the bytes will be written to the begin of the file
-     * 
+     *
      * @param filePath
      * @param stream
      * @return
@@ -217,27 +213,23 @@ public class FileUtils {
 
     /**
      * write file
-     * 
-     * @param filePath
-     *            the file to be opened for writing.
-     * @param stream
-     *            the input stream
-     * @param append
-     *            if <code>true</code>, then bytes will be written to the end of
-     *            the file rather than the beginning
+     *
+     * @param filePath the file to be opened for writing.
+     * @param stream   the input stream
+     * @param append   if <code>true</code>, then bytes will be written to the end of
+     *                 the file rather than the beginning
      * @return return true
-     * @throws RuntimeException
-     *             if an error occurs while operator FileOutputStream
+     * @throws RuntimeException if an error occurs while operator FileOutputStream
      */
     public static boolean writeFile(String filePath, InputStream stream,
-            boolean append) {
+                                    boolean append) {
         return writeFile(filePath != null ? new File(filePath) : null, stream,
                 append);
     }
 
     /**
      * write file, the bytes will be written to the begin of the file
-     * 
+     *
      * @param file
      * @param stream
      * @return
@@ -249,20 +241,16 @@ public class FileUtils {
 
     /**
      * write file
-     * 
-     * @param file
-     *            the file to be opened for writing.
-     * @param stream
-     *            the input stream
-     * @param append
-     *            if <code>true</code>, then bytes will be written to the end of
-     *            the file rather than the beginning
+     *
+     * @param file   the file to be opened for writing.
+     * @param stream the input stream
+     * @param append if <code>true</code>, then bytes will be written to the end of
+     *               the file rather than the beginning
      * @return return true
-     * @throws RuntimeException
-     *             if an error occurs while operator FileOutputStream
+     * @throws RuntimeException if an error occurs while operator FileOutputStream
      */
     public static boolean writeFile(File file, InputStream stream,
-            boolean append) {
+                                    boolean append) {
         OutputStream o = null;
         try {
             makeDirs(file.getAbsolutePath());
@@ -292,7 +280,7 @@ public class FileUtils {
 
     /**
      * move file
-     * 
+     *
      * @param sourceFilePath
      * @param destFilePath
      */
@@ -307,7 +295,7 @@ public class FileUtils {
 
     /**
      * move file
-     * 
+     *
      * @param srcFile
      * @param destFile
      */
@@ -321,12 +309,11 @@ public class FileUtils {
 
     /**
      * copy file
-     * 
+     *
      * @param sourceFilePath
      * @param destFilePath
      * @return
-     * @throws RuntimeException
-     *             if an error occurs while operator FileOutputStream
+     * @throws RuntimeException if an error occurs while operator FileOutputStream
      */
     public static boolean copyFile(String sourceFilePath, String destFilePath) {
         InputStream inputStream = null;
@@ -340,17 +327,15 @@ public class FileUtils {
 
     /**
      * read file to string list, a element of list is a line
-     * 
+     *
      * @param filePath
-     * @param charsetName
-     *            The name of a supported {@link java.nio.charset.Charset
-     *            </code>charset<code>}
+     * @param charsetName The name of a supported {@link java.nio.charset.Charset
+     *                    </code>charset<code>}
      * @return if file not exist, return null, else return content of file
-     * @throws RuntimeException
-     *             if an error occurs while operator BufferedReader
+     * @throws RuntimeException if an error occurs while operator BufferedReader
      */
     public static List<String> readFileToList(String filePath,
-            String charsetName) {
+                                              String charsetName) {
         File file = new File(filePath);
         List<String> fileContent = new ArrayList<String>();
         if (file == null || !file.isFile()) {
@@ -383,7 +368,7 @@ public class FileUtils {
 
     /**
      * get file name from path, not include suffix
-     * 
+     * <p/>
      * <pre>
      *      getFileNameWithoutExtension(null)               =   null
      *      getFileNameWithoutExtension("")                 =   ""
@@ -398,7 +383,7 @@ public class FileUtils {
      *      getFileNameWithoutExtension("/home/admin")      =   "admin"
      *      getFileNameWithoutExtension("/home/admin/a.txt/b.mp3")  =   "b"
      * </pre>
-     * 
+     *
      * @param filePath
      * @return file name from path, not include suffix
      * @see
@@ -423,7 +408,7 @@ public class FileUtils {
 
     /**
      * get file name from path, include suffix
-     * 
+     * <p/>
      * <pre>
      *      getFileName(null)               =   null
      *      getFileName("")                 =   ""
@@ -438,7 +423,7 @@ public class FileUtils {
      *      getFileName("/home/admin")      =   "admin"
      *      getFileName("/home/admin/a.txt/b.mp3")  =   "b.mp3"
      * </pre>
-     * 
+     *
      * @param filePath
      * @return file name from path, include suffix
      */
@@ -453,7 +438,7 @@ public class FileUtils {
 
     /**
      * get folder name from path
-     * 
+     * <p/>
      * <pre>
      *      getFolderName(null)               =   null
      *      getFolderName("")                 =   ""
@@ -469,7 +454,7 @@ public class FileUtils {
      *      getFolderName("/home/admin")      =   "/home"
      *      getFolderName("/home/admin/a.txt/b.mp3")  =   "/home/admin/a.txt"
      * </pre>
-     * 
+     *
      * @param filePath
      * @return
      */
@@ -485,7 +470,7 @@ public class FileUtils {
 
     /**
      * get suffix of file from path
-     * 
+     * <p/>
      * <pre>
      *      getFileExtension(null)               =   ""
      *      getFileExtension("")                 =   ""
@@ -501,7 +486,7 @@ public class FileUtils {
      *      getFileExtension("/home/admin/a.txt/b")  =   ""
      *      getFileExtension("/home/admin/a.txt/b.mp3")  =   "mp3"
      * </pre>
-     * 
+     *
      * @param filePath
      * @return
      */
@@ -527,17 +512,17 @@ public class FileUtils {
      * <li>makeDirs("C:\\Users\\Trinea") can only create users folder</li>
      * <li>makeFolder("C:\\Users\\Trinea\\") can create Trinea folder</li>
      * </ul>
-     * 
+     *
      * @param filePath
      * @return true if the necessary directories have been created or the target
-     *         directory already exists, false one of the directories can not be
-     *         created.
-     *         <ul>
-     *         <li>if {@link FileUtils#getFolderName(String)} return null,
-     *         return false</li>
-     *         <li>if target directory already exists, return true</li>
-     *         <li>return {@link File# makeFolder}</li>
-     *         </ul>
+     * directory already exists, false one of the directories can not be
+     * created.
+     * <ul>
+     * <li>if {@link FileUtils#getFolderName(String)} return null,
+     * return false</li>
+     * <li>if target directory already exists, return true</li>
+     * <li>return {@link File# makeFolder}</li>
+     * </ul>
      */
     public static boolean makeDirs(String filePath) {
         String folderName = getFolderName(filePath);
@@ -561,7 +546,7 @@ public class FileUtils {
 
     /**
      * Indicates if this file represents a file on the underlying file system.
-     * 
+     *
      * @param filePath
      * @return
      */
@@ -577,7 +562,7 @@ public class FileUtils {
     /**
      * Indicates if this file represents a directory on the underlying file
      * system.
-     * 
+     *
      * @param directoryPath
      * @return
      */
@@ -597,7 +582,7 @@ public class FileUtils {
      * <li>if path not exist, return true</li>
      * <li>if path exist, delete recursion. return true</li>
      * <ul>
-     * 
+     *
      * @param path
      * @return
      */
@@ -632,10 +617,10 @@ public class FileUtils {
      * <li>if path is null or empty, return -1</li>
      * <li>if path exist and it is a file, return file size, else return -1</li>
      * <ul>
-     * 
+     *
      * @param path
      * @return returns the length of this file in bytes. returns -1 if the file
-     *         does not exist.
+     * does not exist.
      */
     public static long getFileSize(String path) {
         if (StringUtils.isBlank(path)) {

@@ -9,11 +9,14 @@ import android.widget.TextView;
 
 import com.product.helpshopping.R;
 import com.product.helpshopping.ui.base.AppBaseFragment;
+import com.umeng.analytics.MobclickAgent;
 
 /**
  * Created by Administrator on 2016/3/14 0014.
  */
 public class HomeFragment extends AppBaseFragment {
+    private static final String TAG = HomeFragment.class.getSimpleName();
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // return super.onCreateView(inflater, container, savedInstanceState);
@@ -22,5 +25,19 @@ public class HomeFragment extends AppBaseFragment {
         view.setTextSize(20);
         view.setTextColor(Color.parseColor("#ff0000"));
         return view;
+    }
+
+    @Override
+    public void onPause() {
+        // TODO Auto-generated method stub
+        super.onPause();
+        MobclickAgent.onPageEnd(TAG);
+    }
+
+    @Override
+    public void onResume() {
+        // TODO Auto-generated method stub
+        super.onResume();
+        MobclickAgent.onPageStart(TAG);
     }
 }
