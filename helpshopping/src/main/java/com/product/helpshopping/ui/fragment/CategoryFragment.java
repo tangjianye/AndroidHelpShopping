@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.product.helpshopping.R;
 import com.product.helpshopping.ui.base.AppBaseFragment;
+import com.product.helpshopping.utils.CommonUtils;
 import com.umeng.analytics.MobclickAgent;
 
 /**
@@ -23,6 +24,13 @@ public class CategoryFragment extends AppBaseFragment {
         TextView view = new TextView(getAppBaseActivity());
         view.setText(R.string.label_category);
         view.setTextColor(Color.parseColor("#ff0000"));
+
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                CommonUtils.showShare(getActivity());
+            }
+        });
         return view;
     }
 
