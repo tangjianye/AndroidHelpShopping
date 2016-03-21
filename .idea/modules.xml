@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/AndroidCommon/AndroidCommon.iml" filepath="$PROJECT_DIR$/AndroidCommon/AndroidCommon.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AndroidDaoGenerator/AndroidDaoGenerator.iml" filepath="$PROJECT_DIR$/AndroidDaoGenerator/AndroidDaoGenerator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AndroidHelpShopping.iml" filepath="$PROJECT_DIR$/AndroidHelpShopping.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AndroidPullToRefresh/AndroidPullToRefresh.iml" filepath="$PROJECT_DIR$/AndroidPullToRefresh/AndroidPullToRefresh.iml" />
+      <module fileurl="file://$PROJECT_DIR$/masktime/helpshopping.iml" filepath="$PROJECT_DIR$/masktime/helpshopping.iml" />
+      <module fileurl="file://$PROJECT_DIR$/volley/volley.iml" filepath="$PROJECT_DIR$/volley/volley.iml" />
+    </modules>
+  </component>
+</project>
