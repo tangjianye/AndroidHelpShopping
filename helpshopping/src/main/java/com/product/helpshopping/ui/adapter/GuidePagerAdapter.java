@@ -5,7 +5,7 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 
-import com.product.helpshopping.ui.activity.MainActivity;
+import com.product.helpshopping.ui.activity.MainMaskActivity;
 import com.product.helpshopping.ui.activity.SplashActivity;
 import com.product.helpshopping.ui.base.BaseActivity;
 
@@ -42,7 +42,7 @@ public class GuidePagerAdapter extends PagerAdapter {
                 @Override
                 public void onClick(View view) {
                     // TODO Auto-generated method stub
-                    ((BaseActivity) mContext).openActivity(MainActivity.class);
+                    ((BaseActivity) mContext).openActivity(MainMaskActivity.class);
                     ((SplashActivity) mContext).finish();
                 }
             });

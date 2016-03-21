@@ -62,4 +62,15 @@
     <string name="label_ra_title_defaut">今天做了一个面膜，美哒哒</string>
     <string name="label_ra_content_defaut">她很懒，什么都没有留下</string>
 
+
+    <!-- 帮购 -->
+    <string name="label_share">分享</string>
+
+    <!-- MainMaskActivity start -->
+    <string name="label_home">首页</string>
+    <string name="label_category">分类</string>
+    <string name="label_guide">新手引导</string>
+    <string name="label_personal_center">个人中心</string>
+    <!-- MainMaskActivity end -->
+
 </resources>

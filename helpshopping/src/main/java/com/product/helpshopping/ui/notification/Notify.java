@@ -11,7 +11,7 @@ import android.support.annotation.NonNull;
 import com.product.common.utils.LogUtils;
 import com.product.helpshopping.BaseApplication;
 import com.product.helpshopping.R;
-import com.product.helpshopping.ui.activity.MainActivity;
+import com.product.helpshopping.ui.activity.MainMaskActivity;
 import com.product.helpshopping.ui.activity.SplashActivity;
 import com.product.helpshopping.utils.CommonUtils;
 
@@ -78,8 +78,8 @@ public class Notify {
     private Intent getClickIntent(Context context, String activityName) {
         LogUtils.i(TAG, "activityName = " + activityName);
         Intent intent = null;
-        if (null != activityName && activityName.contains(MainActivity.class.getSimpleName())) {
-            intent = new Intent(context, MainActivity.class);
+        if (null != activityName && activityName.contains(MainMaskActivity.class.getSimpleName())) {
+            intent = new Intent(context, MainMaskActivity.class);
         } else {
             intent = new Intent(context, SplashActivity.class);
         }

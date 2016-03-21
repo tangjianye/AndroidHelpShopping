@@ -6,11 +6,11 @@ import android.util.AttributeSet;
 import android.view.animation.Animation;
 import android.widget.RelativeLayout;
 
+import com.product.common.utils.LogUtils;
 import com.product.helpshopping.common.interfaces.ICycle;
-import com.product.helpshopping.ui.activity.MainActivity;
+import com.product.helpshopping.ui.activity.MainShoppingActivity;
 import com.product.helpshopping.ui.activity.SplashActivity;
 import com.product.helpshopping.ui.base.BaseActivity;
-import com.product.common.utils.LogUtils;
 
 public class WelcomeLayer extends RelativeLayout implements ICycle {
     private static final String TAG = "WelcomeLayer";
@@ -78,7 +78,7 @@ public class WelcomeLayer extends RelativeLayout implements ICycle {
         mHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                ((BaseActivity) getContext()).openActivity(MainActivity.class);
+                ((BaseActivity) getContext()).openActivity(MainShoppingActivity.class);
                 ((SplashActivity) getContext()).finish();
             }
         }, duration);
