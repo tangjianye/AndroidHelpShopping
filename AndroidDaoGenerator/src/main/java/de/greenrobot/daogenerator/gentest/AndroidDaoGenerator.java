@@ -6,12 +6,12 @@ import de.greenrobot.daogenerator.Schema;
 
 public class AndroidDaoGenerator {
     public static void main(String[] args) throws Exception {
-        Schema schema = new Schema(1, "com.product.masktime.db.gen");
+        Schema schema = new Schema(1, "com.product.helpshopping.db.gen");
 
         addNote(schema);
         addRecord(schema);
         // addTblFacialMaskDiaryData(schema);
-        new DaoGenerator().generateAll(schema, "masktime/src/main/java");
+        new DaoGenerator().generateAll(schema, "helpshopping/src/main/java");
     }
 
     private static void addNote(Schema schema) {
